@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="createPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="521.0" prefWidth="671.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.createController">
+   <top>
+      <VBox prefHeight="30.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem mnemonicParsing="false" onAction="#clearButtonClicked" text="New SERC" />
+                        <MenuItem mnemonicParsing="false" onAction="#saveAndClose" text="Save SERC" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#clearButtonClicked" text="Clear" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#openAboutBox" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <HBox prefHeight="0.0" prefWidth="600.0" />
+         </children>
+      </VBox>
+   </top>
+   <right>
+      <AnchorPane>
+         <children>
+            <VBox alignment="TOP_RIGHT" prefHeight="369.0" prefWidth="179.0" AnchorPane.bottomAnchor="122.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="199.0" text="Items:" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <RadioButton contentDisplay="RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#wallRadioButtonClicked" selected="true" text="Walls">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="paintToggleGroup" />
+                     </toggleGroup>
+                     <VBox.margin>
+                        <Insets bottom="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton contentDisplay="RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#dangerRadioButtonClicked" text="Danger / Out of Bounds" toggleGroup="$paintToggleGroup" wrapText="true">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton contentDisplay="RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#roadRadioButtonClicked" text="Roads" toggleGroup="$paintToggleGroup" wrapText="true">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton contentDisplay="RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#waterRadioButtonClicked" text="Water" toggleGroup="$paintToggleGroup" wrapText="true">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton contentDisplay="RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#casualtyRadioButtonClicked" text="Casualty" toggleGroup="$paintToggleGroup">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton contentDisplay="RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#aidRadioButtonClicked" text="Aid" toggleGroup="$paintToggleGroup">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <RadioButton contentDisplay="RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#eraserRadioButtonClicked" text="Eraser" toggleGroup="$paintToggleGroup">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </RadioButton>
+                  <HBox>
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="190.0" text="Size:" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="paintSliderLabel" prefHeight="17.0" prefWidth="190.0" text="10" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Slider fx:id="paintSlider" min="5.0" minorTickCount="5" prefHeight="39.0" prefWidth="167.0" showTickLabels="true" showTickMarks="true" snapToTicks="true">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Slider>
+               </children>
+            </VBox>
+            <VBox alignment="BOTTOM_LEFT" layoutY="358.0" prefHeight="133.0" prefWidth="179.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="358.0">
+               <children>
+                  <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#clearButtonClicked" prefHeight="27.0" prefWidth="181.0" text="Clear" textAlignment="CENTER">
+                     <VBox.margin>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin></Button>
+                  <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#convertButtonClicked" prefHeight="27.0" prefWidth="181.0" text="Convert" textAlignment="CENTER">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin></Button>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </right>
+   <center>
+      <AnchorPane>
+         <children>
+            <Canvas fx:id="createCanvas" height="500.0" onMouseDragged="#canvasDragged" onMousePressed="#canvasClicked" width="500.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

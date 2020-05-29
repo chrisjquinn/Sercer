@@ -1,0 +1,1309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.generateController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#openAboutBox" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="112.0" prefWidth="646.0" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane alignment="BOTTOM_CENTER" prefHeight="103.0" prefWidth="646.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Location: ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="locationTextField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="225.0" promptText="Optional">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                     <children>
+                        <Label text="Time:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="timeTextField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="225.0" promptText="Optional">
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                     <children>
+                        <Label text="Weather:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="weatherTextField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="225.0" promptText="Optional">
+                           <HBox.margin>
+                              <Insets left="22.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <Button fx:id="finalGenerateButton" alignment="CENTER" contentDisplay="RIGHT" defaultButton="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#generateButtonPressed" text="Generate" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </GridPane>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" />
+         </BorderPane.margin>
+      </AnchorPane>
+   </bottom>
+   <center>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+               <children>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Number of Casualties:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="numberOfCasualtiesArea" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="114.0" promptText="Whole Number" HBox.hgrow="SOMETIMES">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+                           <children>
+                              <Label alignment="CENTER" text="Type of SERC:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <MenuButton fx:id="wetSERCMenuButton" mnemonicParsing="false" text="Wet">
+                                <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#noPrefWetSERC" text="No Pref." />
+                                  <MenuItem mnemonicParsing="false" onAction="#poolSERCPressed" text="Pool" />
+                                  <MenuItem mnemonicParsing="false" onAction="#beachSERCPressed" text="Beach" />
+                                    <MenuItem mnemonicParsing="false" onAction="#riverSERCPressed" text="River / Canal" />
+                                    <MenuItem mnemonicParsing="false" onAction="#lakeSERCPressed" text="Lake" />
+                                    <MenuItem mnemonicParsing="false" onAction="#oceanSERCPressed" text="Ocean" />
+                                </items>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </MenuButton>
+                              <MenuButton fx:id="drySERCMenuButton" mnemonicParsing="false" text="Dry">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#noPrefDrySERC" text="No Pref." />
+                                    <MenuItem mnemonicParsing="false" onAction="#indoorSERCPressed" text="Indoor" />
+                                    <MenuItem mnemonicParsing="false" onAction="#multiRoomSERCPressed" text="Multi-Room" />
+                                    <MenuItem mnemonicParsing="false" onAction="#outdoorSERCPressed" text="Outdoor" />
+                                    <MenuItem mnemonicParsing="false" onAction="#roadSERCPressed" text="Outdoor (Roads)" />
+                                 </items>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </MenuButton>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                           <children>
+                              <Label text="Phone:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <MenuButton fx:id="phoneMenuButton" mnemonicParsing="false" prefHeight="27.0" prefWidth="88.0" text="Phone">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#noPrefPhone" text="No Pref." />
+                                    <MenuItem mnemonicParsing="false" onAction="#inSERCPhone" text="In SERC" />
+                                    <MenuItem mnemonicParsing="false" onAction="#outOfSERCPhone" text="Out of Bounds" />
+                                    <MenuItem mnemonicParsing="false" onAction="#noPhone" text="None" />
+                                 </items>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </MenuButton>
+                           </children>
+                           <GridPane.margin>
+                              <Insets top="5.0" />
+                           </GridPane.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Label text="First Aid Kit:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <MenuButton fx:id="firstAidMenuButton" mnemonicParsing="false" prefHeight="27.0" prefWidth="88.0" text="FA">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#noPrefFA" text="No Pref." />
+                                    <MenuItem mnemonicParsing="false" onAction="#inSERCFA" text="In SERC" />
+                                    <MenuItem mnemonicParsing="false" onAction="#outOfSERCFA" text="Out of Bounds" />
+                                    <MenuItem mnemonicParsing="false" onAction="#noFA" text="None" />
+                                 </items>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </MenuButton>
+                           </children>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </GridPane>
+                  <AnchorPane prefHeight="359.0" prefWidth="690.0">
+                     <children>
+                        <TabPane prefHeight="319.0" prefWidth="646.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <tabs>
+                            <Tab text="Breathing">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: beige;">
+                                       <children>
+                                          <VBox prefHeight="326.0" prefWidth="690.0" AnchorPane.bottomAnchor="-21.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="breathingAna" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Anaphylactic">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="breathingAnaText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="breathingChockFull" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Choking (Full)">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="breathingChockFullText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="breathingChockPart" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Chocking (Partial)">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="breathingChockPartText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="breathingHypervent" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Hyperventilating">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="breathingHyerventText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="breathingAsthma" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Asthma">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="breathingAsthmaText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="Councious">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: beige;">
+                                       <children>
+                                          <VBox prefHeight="215.0" prefWidth="646.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="conBreathing" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Uncon. Breathing">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="conBreathingText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="conNotBreathing" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Uncon. Not Breathing">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="conNonBreathingText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="conFaint" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Faint">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="conFaintText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="conSeizure" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Seizure">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="conSeizureText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="Breaks/Dislocation">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: beige;">
+                                       <children>
+                                          <VBox prefHeight="215.0" prefWidth="646.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="breakArm" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Brok. Arm">
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="breakArmText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information (Bleeding, open or closed wound)">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="breakLeg" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Brok. Leg">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="breakLegText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information (Bleeding, open or closed wound)">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="breakOther" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Bone (other)">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="breakOtherText" prefHeight="44.0" prefWidth="427.0" promptText="Which bone, bleeding etc.">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="dislocKnee" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Disloc. Knee">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="dislocKneeText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="dislocAnk" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Disloc. Ankle">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="dislocAnkText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="dislocHip" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Disloc. Hip">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="dislocHipText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="dislocOther" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Dislocation (other)">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="dislocOtherText" prefHeight="44.0" prefWidth="427.0" promptText="Location">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="Sprain">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: beige;">
+                                       <children>
+                                          <VBox prefHeight="215.0" prefWidth="646.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="sprainElbow" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Elbow">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="sprainElbowText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information (e.g. how it happened)">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="sprainAnk" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Ankle">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="sprainAnkText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information (e.g. how it happened)">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="sprainWrist" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Wrist">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="sprainWristText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information (e.g. how it happened)">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="sprainKnee" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Knee">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="sprainKneeText" prefHeight="44.0" prefWidth="427.0" promptText="Other information (e.g. how it happened)">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox />
+                                                <HBox />
+                                                <HBox />
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="sprainOther" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Other">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="sprainOtherText" prefHeight="44.0" prefWidth="427.0" promptText="Location">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="Medical Cond.">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: beige;">
+                                       <children>
+                                          <VBox prefHeight="215.0" prefWidth="646.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="medicalEpilepsy" allowIndeterminate="true" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Epilepsy">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="medicalEpilepsyText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="medicalAsthma" allowIndeterminate="true" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Asthma">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="medicalAsthmaText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information (e.g. how it happened)">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="medicalAllergies" allowIndeterminate="true" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Allergies">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="medicalAllergiesText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information (e.g. What allergies)">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="medicalDiabetes" allowIndeterminate="true" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Diabetic">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="medicalDiabetesText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information (e.g. Hyper / Hypo)">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox />
+                                                <HBox />
+                                                <HBox />
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="medicalAngina" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Angina">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="medicalAnginaText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="medicalOther" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Other">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="bleedOtherText" prefHeight="44.0" prefWidth="427.0" promptText="Medical Condition">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="Bleeds">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: beige;">
+                                       <children>
+                                          <VBox prefHeight="215.0" prefWidth="646.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="bleedChest" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Chest">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="bleedChestText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information (e.g. how it happened)">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="bleedHead" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Head">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="bleedHeadText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information (e.g. how it happened)">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="bleedEmbed" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Embedded Object">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="bleedEmbedText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information (e.g. how it happened)">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="bleedArm" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Arm">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="bleedArmText" prefHeight="44.0" prefWidth="427.0" promptText="Other information (e.g. how it happened)">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox />
+                                                <HBox />
+                                                <HBox />
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="bleedLeg" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Leg">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="bleedLegText" prefHeight="44.0" prefWidth="427.0" promptText="Other information (e.g. how it happened)">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="bleedOther" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Other(s)">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="medicalOtherText" prefHeight="44.0" prefWidth="427.0" promptText="Location">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="Other">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: beige;">
+                                       <children>
+                                          <VBox prefHeight="215.0" prefWidth="646.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="otherHeat" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Heatstroke / Hyperthermic">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="otherHeatText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="otherHypotherm" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Hypothermic">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="otherHypothermText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information ">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="otherSpinal" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Spinal">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="otherSpinalText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="otherCrush" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Crush">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="otherCrushText" prefHeight="44.0" prefWidth="427.0" promptText="Other information (e.g. amount of time elapsed)">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox />
+                                                <HBox />
+                                                <HBox />
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="otherSting" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Sting">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="otherStingText" prefHeight="44.0" prefWidth="427.0" promptText="Other information (e.g. cause of sting, allergic to the sting))">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="otherNotSuffering" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Not Suffering">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="otherNotSufferingText" prefHeight="44.0" prefWidth="427.0" promptText="Description (Casualty is fine)">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="otherOther" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Other(s)">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="otherOtherText" prefHeight="44.0" prefWidth="427.0" promptText="...">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab fx:id="drowningTab" text="Drowning">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: beige;">
+                                       <children>
+                                          <VBox prefHeight="215.0" prefWidth="646.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="drownWeak" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Weak Swimmer">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="drownWeakText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="drownNon" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Non-Swimmer">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="drownNonText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="downLocked" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Locked Swimmers">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="drownLockedText" prefHeight="44.0" prefWidth="427.0" promptText="Other Information">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                                <HBox />
+                                                <HBox />
+                                                <HBox />
+                                                <HBox>
+                                                   <children>
+                                                      <CheckBox fx:id="drownOther" mnemonicParsing="false" prefHeight="44.0" prefWidth="220.0" text="Other drowning ">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </CheckBox>
+                                                      <TextArea fx:id="downOtherText" prefHeight="44.0" prefWidth="427.0" promptText="Description">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </TextArea>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab fx:id="drowningTab1" disable="true" text="Aids">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: beige;">
+                                       <children>
+                                          <GridPane layoutX="10.0" layoutY="10.0" prefHeight="45.0" prefWidth="690.0" AnchorPane.bottomAnchor="267.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Label text="Phone:">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <MenuButton mnemonicParsing="false" prefHeight="27.0" prefWidth="88.0" text="Phone">
+                                                         <items>
+                                                            <MenuItem mnemonicParsing="false" onAction="#noPrefPhone" text="No Pref." />
+                                                            <MenuItem mnemonicParsing="false" onAction="#inSERCPhone" text="In SERC" />
+                                                            <MenuItem mnemonicParsing="false" onAction="#outOfSERCPhone" text="Out of Bounds" />
+                                                            <MenuItem mnemonicParsing="false" onAction="#noPhone" text="None" />
+                                                         </items>
+                                                         <HBox.margin>
+                                                            <Insets left="20.0" />
+                                                         </HBox.margin>
+                                                      </MenuButton>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets left="20.0" top="10.0" />
+                                                   </padding>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                                   <children>
+                                                      <Label text="First Aid Kit:">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                      <MenuButton mnemonicParsing="false" prefHeight="27.0" prefWidth="88.0" text="FA">
+                                                         <items>
+                                                            <MenuItem mnemonicParsing="false" onAction="#noPrefFA" text="No Pref." />
+                                                            <MenuItem mnemonicParsing="false" onAction="#inSERCFA" text="In SERC" />
+                                                            <MenuItem mnemonicParsing="false" onAction="#outOfSERCFA" text="Out of Bounds" />
+                                                            <MenuItem mnemonicParsing="false" onAction="#noFA" text="None" />
+                                                         </items>
+                                                         <HBox.margin>
+                                                            <Insets left="20.0" />
+                                                         </HBox.margin>
+                                                      </MenuButton>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets right="20.0" top="10.0" />
+                                                   </padding>
+                                                </HBox>
+                                             </children>
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                          <VBox layoutX="1.0" layoutY="54.0" prefHeight="258.0" prefWidth="690.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="54.0">
+                                             <children>
+                                                <HBox alignment="CENTER_LEFT">
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                   <children>
+                                                      <Label text="Label" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox />
+                                                <HBox />
+                                                <HBox />
+                                                <HBox />
+                                                <HBox />
+                                                <HBox />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                          </tabs>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" top="5.0" />
+                           </padding>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
